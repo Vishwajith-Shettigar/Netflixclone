@@ -39,6 +39,52 @@ android:src="@drawable/nlogog"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         >
+        <LinearLayout
+            android:id="@+id/dotsparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+android:gravity="center"
+            android:layout_margin="13dp"
+
+
+            >
+<TextView
+    android:id="@+id/dotone"
+    android:layout_width="12dp"
+    android:layout_height="12dp"
+android:background="@drawable/dotsfragactive"
+ android:layout_marginEnd="14dp"
+
+
+    />
+            <TextView
+                android:id="@+id/dottwo"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/dotsfragback"
+                android:layout_marginEnd="14dp"
+
+                />
+
+            <TextView
+                android:id="@+id/dotthree"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/dotsfragback"
+                android:layout_marginEnd="14dp"
+
+                />
+            <TextView
+                android:id="@+id/dotfour"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/dotsfragback"
+                android:layout_marginEnd="14dp"
+
+                />
+        </LinearLayout>
+
 <com.google.android.material.button.MaterialButton
     android:id="@+id/getstartedbtn"
     android:layout_width="match_parent"
@@ -51,6 +97,7 @@ android:src="@drawable/nlogog"
     android:background="@color/red"
     android:layout_marginBottom="30dp"
     android:elevation="4dp"
+    android:layout_below="@+id/dotsparent"
     />
 
     </RelativeLayout>

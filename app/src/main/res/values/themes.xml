@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.NetflixClone" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/red</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
@@ -14,5 +14,14 @@
 
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="CustomEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@null</item> <!-- Set the background to null to remove the underline -->
+        <!-- Add any other custom properties you want to apply to the EditText here -->
+    </style>
+    <style name="customButtongetstartedandsignin" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/black</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="strokeColor">#BEB9B9</item>
     </style>
 </resources>
