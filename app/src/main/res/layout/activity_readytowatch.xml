@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Readytowatch">
+   <androidx.appcompat.widget.Toolbar
+       android:id="@+id/rtowtb"
+       android:layout_width="match_parent"
+       android:layout_height="100dp"
+
+
+       app:menu="@menu/rtowcross"
+       android:paddingTop="25dp"
+       android:paddingEnd="15dp"
+       />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rtowtb"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Ready to watch?"
+            android:textSize="40dp"
+            android:textColor="@color/black"
+
+
+
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+
+           android:layout_marginTop="10dp"
+            android:text="Enter your email to create or sign in to your account"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+
+
+
+
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:padding="1dp"
+            android:background="#DC3B0DA4"
+            >
+
+
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Email"
+    android:id="@+id/fi"
+
+    android:textColor="@color/black"
+    android:background="@color/white"
+    android:padding="5dp"
+
+    />
+        <EditText
+            android:layout_below="@+id/fi"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:id="@+id/etowemail"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:padding="5dp"
+
+
+
+
+            />
+        </RelativeLayout>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="GET STARTED"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/red"
+        android:layout_marginTop="20dp"
+            android:elevation="4dp"
+            />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

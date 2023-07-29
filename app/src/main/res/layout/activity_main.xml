@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".MainActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+
+        android:elevation="4dp"
+
+        android:id="@+id/getstatrtedtb"
+
+        app:titleTextColor="@color/white"
+        >
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+android:src="@drawable/nlogog"
+
+
+
+            />
+    </androidx.appcompat.widget.Toolbar>
+
+<androidx.viewpager2.widget.ViewPager2
+  android:elevation="0dp"
+    android:id="@+id/getstartedviewpager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/getstartedlower"
+    />
+    <RelativeLayout
+        android:id="@+id/getstartedlower"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/getstartedbtn"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:text="GET STARTED"
+    android:textSize="20dp"
+    android:textColor="@color/white"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:background="@color/red"
+    android:layout_marginBottom="30dp"
+    android:elevation="4dp"
+    />
+
+    </RelativeLayout>
+
+</RelativeLayout>

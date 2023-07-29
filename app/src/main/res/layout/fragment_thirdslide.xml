@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragmentsnetflix.firstslid">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/fourthfragimage"
+        android:scaleType="fitCenter"
+        android:elevation="3dp"
+
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/getstartedfirsttext"
+        android:text="Watch \n everywhere"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        android:layout_alignParentBottom="true"
+
+        android:elevation="4dp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:layout_marginBottom="180dp"
+        />
+    <TextView
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:elevation="9dp"
+
+
+
+
+
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Stream on your phone, tablet,\nlaptop,TV and more."
+        android:textColor="#D8D8D8"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="120dp"
+
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:backgroundTint="@color/black"
+        android:background="@color/black"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/blackbottomgradient" />
+</RelativeLayout>
