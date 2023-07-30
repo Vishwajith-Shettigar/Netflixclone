@@ -93,6 +93,7 @@ android:layout_marginStart="20dp"
             />
         </RelativeLayout>
         <com.google.android.material.button.MaterialButton
+          android:id="@+id/rtowbtn"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="GET STARTED"

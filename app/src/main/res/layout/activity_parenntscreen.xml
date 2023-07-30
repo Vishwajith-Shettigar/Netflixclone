@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".Parenntscreen">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/parenttb"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+android:elevation="3dp"
+        app:titleTextColor="@color/black"
+        android:paddingLeft="0dp"
+        android:contentInsetStart="0dp"
+        style="@style/ToolbarStyle"
+
+
+        >
+
+        <ImageView
+
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+android:paddingTop="10dp"
+
+            android:layout_gravity="start"
+            android:src="@drawable/nlogog" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_below="@+id/parenttb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        >
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="TV Shows"
+           android:textSize="13dp"
+           android:padding="10dp"
+           android:paddingStart="20dp"
+           android:paddingEnd="20dp"
+
+android:textColor="@color/white"
+           android:background="@drawable/backparenttabtop"
+           />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Movies"
+            android:textSize="13dp"
+            android:padding="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+
+            android:textColor="@color/white"
+            android:background="@drawable/backparenttabtop"
+            android:layout_marginStart="10dp"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:padding="7dp"
+            android:background="@drawable/backparenttabtop"
+android:gravity="center"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categories"
+            android:textSize="13dp"
+
+
+android:paddingStart="20dp"
+            android:textColor="@color/white"
+
+            />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+android:src="@drawable/baseline_keyboard_arrow_down_24"
+                android:paddingEnd="10dp"
+                />
+    </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

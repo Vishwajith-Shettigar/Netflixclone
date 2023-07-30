@@ -12,6 +12,12 @@
         android:theme="@style/Theme.NetflixClone"
         tools:targetApi="31">
         <activity
+            android:name=".Parenntscreen"
+            android:exported="false" />
+        <activity
+            android:name=".Signup"
+            android:exported="false" />
+        <activity
             android:name=".Signin"
             android:exported="false" />
         <activity

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+android:background="@color/white"
+    tools:context=".Signup"
+
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/signuptb"
+        app:titleTextColor="@color/black"
+        android:elevation="4dp"
+
+
+        >
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+android:scaleType="centerCrop"
+android:src="@drawable/netflixfulltextwhite"
+            />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signuptb"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Ready to experience \nunlimited TV shows \&amp; \nmovies?"
+            android:textSize="27dp"
+            android:textColor="@color/black"
+android:paddingLeft="10dp"
+android:gravity="left"
+android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="left"
+
+            android:layout_marginTop="10dp"
+            android:text="Create an account to learn more\nabout Netflix."
+
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="16dp"
+
+            android:paddingLeft="10dp"
+
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:padding="1dp"
+            android:background="#DC34C937"
+            >
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:id="@+id/fi"
+
+                android:textColor="@color/black"
+                android:background="@color/white"
+                android:padding="5dp"
+
+                />
+            <EditText
+                android:layout_below="@+id/fi"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:id="@+id/signupemail"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:padding="5dp"
+
+
+
+
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:padding="1dp"
+            android:background="#DC34C937"
+            >
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:id="@+id/fill"
+
+                android:textColor="@color/black"
+                android:background="@color/white"
+                android:padding="5dp"
+
+                />
+            <EditText
+                android:layout_below="@+id/fill"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:id="@+id/signuppassword"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:padding="5dp"
+
+
+
+
+                />
+        </RelativeLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/rtowbtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="CONTINUE"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/red"
+            android:layout_marginTop="20dp"
+            android:elevation="4dp"
+            />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
