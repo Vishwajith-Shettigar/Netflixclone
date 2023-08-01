@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-  
+    <item
+        android:id="@+id/Homemenu"
+        android:enabled="true"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Home"/>
+    <item
+        android:id="@+id/newsmenu"
+        android:enabled="true"
+        android:icon="@drawable/newandhotgray"
+        android:title="News &amp; Hot"/>
+    <item
+        android:id="@+id/downloadsmenu"
+        android:enabled="true"
+        android:icon="@drawable/baseline_arrow_circle_down_grey_24"
+        android:title="Downloads"/>
 </menu>

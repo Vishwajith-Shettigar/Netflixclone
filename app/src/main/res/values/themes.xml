@@ -33,5 +33,22 @@
         <item name="android:contentInsetStart">0dp</item>
     </style>
 
+    <style name="customButtonmainposterplay" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/white</item>
 
+    </style>
+
+    <style name="customButtonmainpostermylist" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">#70FFFFFF</item>
+        <item name="backgroundTint">@android:color/white</item>
+<item name="cornerRadius">11mm</item>
+
+    </style>
+    <style name="customButtonvideoscreendownload" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">#90FFFFFF</item>
+        <item name="backgroundTint">#847F7F</item>
+
+
+        <item name="iconTint">@color/white</item>
+    </style>
 </resources>

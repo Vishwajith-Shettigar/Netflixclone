@@ -1,14 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragmentsnetflix.Playvideofragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    tools:context=".Fragmentsnetflix.Playvideofragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
+<VideoView
+    android:id="@+id/videoplayer"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+
+    />
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+android:textColor="@color/white"
+android:text="The Flash"
+    android:textSize="30dp"
+    android:textStyle="bold"
+    android:paddingStart="10dp"
+    android:paddingBottom="0dp"
+
+    />
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="2dp"
+        android:paddingStart="10dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
+android:layout_marginBottom="10dp"
+
+
+        >
+<TextView
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/year"
+    android:text="2023"
+    android:textColor="@color/white"
+    android:layout_marginEnd="4dp"
+    android:textSize="12dp"
+    />
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+android:src="@drawable/hdicon"
+            android:layout_marginEnd="4dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/duration"
+            android:text="2h 24m"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:layout_marginEnd="4dp"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/staricon"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:id="@+id/ratings"
+                android:textSize="12dp"
+                android:text="6,943"
+                android:textColor="@color/white"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+<com.google.android.material.button.MaterialButton
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+   app:icon="@drawable/playicon"
+    android:text="Play"
+    android:textColor="@color/black"
+    android:textStyle="bold"
+    android:textAllCaps="false"
+    app:iconGravity="textStart"
+    android:gravity="center"
+    style="@style/customButtonmainposterplay"
+
+
+
+    />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+
+        app:icon="@drawable/baseline_download_24"
+        android:text="Download"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+
+app:iconGravity="textStart"
+android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+            style="@style/customButtonvideoscreendownload"
+
+
+
+    />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+android:text="Star topology is a network topology in which multiple devices are connected to a central device, typically a switch or a hub. In a star topology, each device in the network is directly connected to the central device, forming a shape that resembles a star Central Device: The central device, often a switch or a hub, serves as the central point of control and communication in the network. It acts as a junction that connects all the devices in the network "
+        android:textColor="@color/white"
+        android:contextClickable="true"
+        android:clickable="true"
 
-</FrameLayout>
+
+        />
+</LinearLayout>
