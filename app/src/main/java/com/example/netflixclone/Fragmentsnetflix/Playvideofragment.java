@@ -10,12 +10,9 @@ import android.view.ViewGroup;
 
 import com.example.netflixclone.R;
 import com.example.netflixclone.models.Moviemodel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Playvideofragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class Playvideofragment extends Fragment {
 
     Moviemodel data;
@@ -24,6 +21,7 @@ public class Playvideofragment extends Fragment {
  this.data=data;
  }
 
+    private BottomNavigationView bottomNavigationView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +32,19 @@ public class Playvideofragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_playvideofragment, container, false);
+        View view= inflater.inflate(R.layout.fragment_playvideofragment, container, false);
+
+
+        bottomNavigationView = view.findViewById(R.id.videotabs);
+
+        // Set up item click listener for the BottomNavigationView
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            // Calculate the left and right positions of the indicator based on the selected item
+
+            return false;
+        });
+        return  view;
     }
 }
