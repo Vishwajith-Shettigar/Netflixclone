@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black"
+
     tools:context=".Fragmentsnetflix.Playvideofragment"
     android:orientation="vertical">
 
@@ -14,6 +15,21 @@
     android:layout_height="200dp"
 
     />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -139,4 +155,107 @@ android:text="Star topology is a network topology in which multiple devices are 
 
 
         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:layout_margin="20dp"
+android:orientation="horizontal"
+
+        >
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+
+    >
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+android:src="@drawable/plusicon"
+    android:padding="5dp"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+android:text="My List"
+        android:textSize="10dp"
+        android:textColor="#E2D8D8"
+        />
+
+</LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginStart="30dp"
+
+
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/thumbsup"
+                android:padding="5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rate"
+                android:textSize="10dp"
+                android:textColor="#E2D8D8"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginStart="30dp"
+
+
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/share"
+                android:padding="5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share"
+                android:textSize="10dp"
+                android:textColor="#E2D8D8"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+
+android:background="#918888"
+        />
+
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+           android:isScrollContainer="true"
+
+            android:id="@+id/videotabs"
+            android:background="@color/black"
+            android:padding="0dp"
+            app:itemTextColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/videoplaytabs" />
+
+
+
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

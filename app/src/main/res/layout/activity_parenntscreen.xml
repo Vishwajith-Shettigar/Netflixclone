@@ -23,8 +23,8 @@ android:elevation="3dp"
 
         <ImageView
 
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
 android:paddingTop="10dp"
 
             android:layout_gravity="start"
@@ -341,6 +341,7 @@ android:paddingTop="10dp"
         android:layout_below="@+id/parenttb"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation"
 
         />
     <com.google.android.material.bottomnavigation.BottomNavigationView
