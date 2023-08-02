@@ -16,7 +16,10 @@ import android.view.ViewGroup;
 import com.example.netflixclone.Adapters.Moviesadapter;
 import com.example.netflixclone.R;
 import com.example.netflixclone.models.Durationmodel;
+import com.example.netflixclone.models.Episodemodel;
 import com.example.netflixclone.models.Moviemodel;
+import com.example.netflixclone.models.Noofseasonsmodel;
+import com.example.netflixclone.models.Seasonsmodel;
 import com.example.netflixclone.viewmodels.Movieviewmodel;
 
 import java.util.List;
@@ -26,9 +29,10 @@ public class Episodesfragment extends Fragment {
 
 RecyclerView episodesrc;
 Movieviewmodel movieviewmodel;
-int id;
-    public Episodesfragment(int id) {
+int id,noofseasonss;
+    public Episodesfragment(int id,int noofseasonss) {
         this.id=id;
+        this.noofseasonss=noofseasonss;
     }
 
     @Override
@@ -42,8 +46,25 @@ int id;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_episodesfragment, container, false);
-
+        movieviewmodel = new Movieviewmodel();
+        movieviewmodel= new ViewModelProvider(this).get(Movieviewmodel.class);
         episodesrc=view.findViewById(R.id.episodesrc);
+Log.e("#","no of seasons "+ noofseasonss);
+
+
+
+        movieviewmodel.getEpisode().observe(getViewLifecycleOwner(), new Observer<List<Episodemodel>>() {
+            @Override
+            public void onChanged(List<Episodemodel> episodemodel) {
+
+
+            }
+        });
+        if(noofseasonss>0) {
+            movieviewmodel.fetchEpisodes(id);
+
+        }
+
 
         return  view;
     }

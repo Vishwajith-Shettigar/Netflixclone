@@ -256,9 +256,10 @@ android:background="#918888"
             android:padding="0dp"
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             app:menu="@menu/videoplaytabs"
             app:itemTextColor="@drawable/selector_bottom_navigation_text"
+android:layout_marginBottom="20dp"
             />
 
 
@@ -267,7 +268,7 @@ android:background="#918888"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/seasonscontainer"
-    android:layout_marginTop="20dp"
+
 
    />
 

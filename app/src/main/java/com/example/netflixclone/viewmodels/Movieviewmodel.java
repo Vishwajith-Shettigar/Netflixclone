@@ -8,9 +8,13 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.netflixclone.Apiservices.Durationresponse;
 import com.example.netflixclone.Apiservices.Movieapiservice;
+import com.example.netflixclone.Responses.Episodesresponse;
 import com.example.netflixclone.Responses.Movieresponse;
 import com.example.netflixclone.models.Durationmodel;
+import com.example.netflixclone.models.Episodemodel;
 import com.example.netflixclone.models.Moviemodel;
+import com.example.netflixclone.models.Noofseasonsmodel;
+import com.example.netflixclone.models.Seasonsmodel;
 
 import java.text.Collator;
 import java.util.List;
@@ -34,8 +38,10 @@ public class Movieviewmodel extends ViewModel {
 
     private MutableLiveData<List<Moviemodel>> horrormoviesdata = new MutableLiveData<>();
 
-
+    private MutableLiveData <List<Episodemodel>> episodedata = new MutableLiveData<>();
     private MutableLiveData<Durationmodel>durationdata = new MutableLiveData<>();
+
+    private MutableLiveData<Noofseasonsmodel>noofseasondata = new MutableLiveData<>();
     private Movieapiservice movieapiservice;
 
     public Movieviewmodel() {
@@ -65,6 +71,16 @@ public class Movieviewmodel extends ViewModel {
     public LiveData<Durationmodel> getDuration() {
         return durationdata;
     }
+
+
+
+    public LiveData<List<Episodemodel>> getEpisode() {
+        return episodedata;
+    }
+    public LiveData<Noofseasonsmodel> getNoofseasons() {
+        return noofseasondata;
+    }
+
 
     public void fetchPopularmovies() {
         Log.e("#", "fecth daat");
@@ -215,5 +231,75 @@ public class Movieviewmodel extends ViewModel {
 
         });
     }
+
+
+    public void fetchEpisodes(int id) {
+
+        Call<Episodesresponse>call = movieapiservice.getEpisodes();
+        call.enqueue(new Callback<Episodesresponse>() {
+
+            public void onResponse(Call<Episodesresponse>call, Response<Episodesresponse> response) {
+                if (response.isSuccessful()) {
+                    Episodesresponse data =  response.body();
+                    List<Episodemodel> datalist=data.getEpisodes();
+
+
+                    try{
+
+                        episodedata.postValue(datalist);
+                        Log.e("#","Episode under sucessful" + datalist.get(0).getOverview());
+
+                    }
+                    catch (Exception e)
+                    {
+                        Log.e("#","Episode under sucessful" +e.getMessage());
+
+                    }
+
+                }
+                Log.e("#","Episode under response");
+            }
+
+
+
+            @Override
+            public void onFailure(Call<Episodesresponse> call, Throwable t) {
+                Log.e("#","Episode under failure "+ t.getMessage());
+            }
+
+        });
+    }
+
+
+    public void fetchnofoseasons(int id) {
+        Log.e("#", "fecth daat");
+        Call<Noofseasonsmodel> call = movieapiservice.getNofseasons(id);
+        call.enqueue(new Callback<Noofseasonsmodel>() {
+
+            public void onResponse(Call<Noofseasonsmodel> call, Response<Noofseasonsmodel> response) {
+                if (response.isSuccessful()) {
+
+                    Noofseasonsmodel dataList =response.body();
+
+                    Log.e("#","under res"+ dataList.getNoofseason());
+                    noofseasondata.postValue(dataList);
+
+                }
+                else{
+
+                    Log.e("#","under nosuces");
+                }
+            }
+
+
+
+            @Override
+            public void onFailure(Call<Noofseasonsmodel> call, Throwable t) {
+                Log.e("#","under failure");
+            }
+
+        });
+    }
+
     }
 

@@ -33,6 +33,7 @@ import android.widget.TextView;
 import com.example.netflixclone.R;
 import com.example.netflixclone.models.Durationmodel;
 import com.example.netflixclone.models.Moviemodel;
+import com.example.netflixclone.models.Noofseasonsmodel;
 import com.example.netflixclone.viewmodels.Movieviewmodel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -46,6 +47,8 @@ public class Playvideofragment extends Fragment {
     Moviemodel data;
     private boolean isExpanded = false;
     Movieviewmodel movieviewmodel;
+     Boolean hasSeasons=false;
+     int noofseasonss=0;
  public  Playvideofragment(Moviemodel data)
  {
  this.data=data;
@@ -80,12 +83,15 @@ overview.setOnClickListener(new View.OnClickListener() {
     }
 });
         bottomNavigationView = view.findViewById(R.id.videotabs);
+        bottomNavigationView.getMenu().getItem(0).setVisible(false);
+        bottomNavigationView.getMenu().getItem(1).setChecked(true);
+        movieviewmodel.fetchnofoseasons(data.getId());
 
         // Create a PopupMenu and inflate it with your menu resource
 
 
 // Get the menu item you want to change the color for
-        Menu menu = bottomNavigationView.getMenu();
+
 
 // Set the desired text color
 //        for (int i=1;i<menu.size();i++) {
@@ -116,6 +122,25 @@ setDataforviews();
 
             }
         });
+
+        movieviewmodel.getNoofseasons().observe(getViewLifecycleOwner(), new Observer<Noofseasonsmodel>() {
+            @Override
+            public void onChanged(Noofseasonsmodel noofseasonsmodel) {
+                Log.e("#","seasons  "+noofseasonsmodel.getNoofseason()+"");
+               hasSeasons=true;
+               noofseasonss=noofseasonsmodel.getNoofseason();
+               bottomNavigationView.getMenu().getItem(0).setVisible(true);
+                bottomNavigationView.getMenu().getItem(1).setChecked(false);
+                bottomNavigationView.getMenu().getItem(0).setChecked(true);
+
+
+
+
+            }
+        });
+
+
+
 
 
 
@@ -178,7 +203,7 @@ y=data.getFirstairdate().split("-")[0];
         FragmentManager fragmentManager=((AppCompatActivity)getActivity()).getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         if(i==0) {
-            fragmentTransaction.replace(R.id.seasonscontainer, new Episodesfragment(data.getId()));
+            fragmentTransaction.replace(R.id.seasonscontainer, new Episodesfragment(data.getId(),noofseasonss));
         }
         else if (i==1) {
             fragmentTransaction.replace(R.id.seasonscontainer, new Morelikethisfragment());
