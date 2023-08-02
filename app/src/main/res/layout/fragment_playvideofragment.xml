@@ -31,6 +31,7 @@
 
 
 <TextView
+    android:id="@+id/videotitle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 android:textColor="@color/white"
@@ -144,6 +145,7 @@ android:layout_marginStart="10dp"
 
     />
     <TextView
+        android:id="@+id/overview"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="10dp"
@@ -151,8 +153,11 @@ android:layout_marginStart="10dp"
 android:text="Star topology is a network topology in which multiple devices are connected to a central device, typically a switch or a hub. In a star topology, each device in the network is directly connected to the central device, forming a shape that resembles a star Central Device: The central device, often a switch or a hub, serves as the central point of control and communication in the network. It acts as a junction that connects all the devices in the network "
         android:textColor="@color/white"
         android:contextClickable="true"
-        android:clickable="true"
 
+
+        android:ellipsize="end"
+
+        android:focusable="true"
 
         />
     <LinearLayout
@@ -249,12 +254,22 @@ android:background="#918888"
             android:id="@+id/videotabs"
             android:background="@color/black"
             android:padding="0dp"
-            app:itemTextColor="@color/white"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/videoplaytabs" />
+            app:menu="@menu/videoplaytabs"
+            app:itemTextColor="@drawable/selector_bottom_navigation_text"
+            />
 
 
+<FrameLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/seasonscontainer"
+    android:layout_marginTop="20dp"
+
+   />
 
     </LinearLayout>
     </ScrollView>

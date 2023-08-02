@@ -28,6 +28,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
         <item name="contentInsetStart">0dp</item>
         <item name="android:contentInsetStart">0dp</item>
@@ -48,7 +49,13 @@
         <item name="android:background">#90FFFFFF</item>
         <item name="backgroundTint">#847F7F</item>
 
-
+<item name="cornerRadius">100dp</item>
         <item name="iconTint">@color/white</item>
     </style>
+
+
+    <style name="BottomNavigationItemStyle">
+        <item name="android:textColor">@drawable/selector_bottom_navigation_text</item>
+    </style>
+
 </resources>

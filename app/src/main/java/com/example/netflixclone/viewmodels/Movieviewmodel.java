@@ -6,8 +6,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.netflixclone.Apiservices.Durationresponse;
 import com.example.netflixclone.Apiservices.Movieapiservice;
 import com.example.netflixclone.Responses.Movieresponse;
+import com.example.netflixclone.models.Durationmodel;
 import com.example.netflixclone.models.Moviemodel;
 
 import java.text.Collator;
@@ -31,6 +33,9 @@ public class Movieviewmodel extends ViewModel {
     private MutableLiveData<List<Moviemodel>> tvdramasdata = new MutableLiveData<>();
 
     private MutableLiveData<List<Moviemodel>> horrormoviesdata = new MutableLiveData<>();
+
+
+    private MutableLiveData<Durationmodel>durationdata = new MutableLiveData<>();
     private Movieapiservice movieapiservice;
 
     public Movieviewmodel() {
@@ -56,6 +61,9 @@ public class Movieviewmodel extends ViewModel {
     }
     public LiveData<List<Moviemodel>> getHorrormovies() {
         return horrormoviesdata;
+    }
+    public LiveData<Durationmodel> getDuration() {
+        return durationdata;
     }
 
     public void fetchPopularmovies() {
@@ -173,6 +181,36 @@ public class Movieviewmodel extends ViewModel {
             @Override
             public void onFailure(Call<Movieresponse> call, Throwable t) {
 
+            }
+
+        });
+    }
+
+    public void fetchDuration(int id) {
+        Log.e("#", "fecth daat");
+        Call<Durationmodel> call = movieapiservice.getDuration(id);
+        call.enqueue(new Callback<Durationmodel>() {
+
+            public void onResponse(Call<Durationmodel> call, Response<Durationmodel> response) {
+                if (response.isSuccessful()) {
+
+                    Durationmodel dataList =response.body();
+
+                    Log.e("#","under res"+ dataList.getDuration());
+                    durationdata.postValue(dataList);
+
+                }
+                else{
+
+                    Log.e("#","under nosuces");
+                }
+            }
+
+
+
+            @Override
+            public void onFailure(Call<Durationmodel> call, Throwable t) {
+                Log.e("#","under failure");
             }
 
         });

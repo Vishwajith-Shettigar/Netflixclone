@@ -7,8 +7,26 @@ public class Moviemodel {
     @SerializedName("id")
     int id;
 
-    @SerializedName("name")
+    @SerializedName("original_title")
     String title;
+    @SerializedName("name")
+    String name;
+
+@SerializedName("first_air_date")
+    String firstairdate;
+
+    public String getFirstairdate() {
+        return firstairdate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @SerializedName("poster_path")
     String image;
 
@@ -17,6 +35,16 @@ public class Moviemodel {
    @SerializedName("overview")
     String desc;
 
+   @SerializedName("release_date")
+   String year;
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
 
     public int getId() {
         return id;
