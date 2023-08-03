@@ -105,7 +105,7 @@ overview.setOnClickListener(new View.OnClickListener() {
 
 
 setDataforviews();
-        setFragments(0);
+
 
 
 
@@ -128,11 +128,16 @@ setDataforviews();
             public void onChanged(Noofseasonsmodel noofseasonsmodel) {
                 Log.e("#","seasons  "+noofseasonsmodel.getNoofseason()+"");
                hasSeasons=true;
+
                noofseasonss=noofseasonsmodel.getNoofseason();
                bottomNavigationView.getMenu().getItem(0).setVisible(true);
                 bottomNavigationView.getMenu().getItem(1).setChecked(false);
                 bottomNavigationView.getMenu().getItem(0).setChecked(true);
 
+                if(noofseasonss>0)
+                    setFragments(0);
+                else
+                    setFragments(1);
 
 
 
@@ -140,9 +145,10 @@ setDataforviews();
         });
 
 
-
-
-
+        if(noofseasonss>0)
+            setFragments(0);
+        else
+            setFragments(1);
 
         // Set up item click listener for the BottomNavigationView
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
@@ -206,7 +212,7 @@ y=data.getFirstairdate().split("-")[0];
             fragmentTransaction.replace(R.id.seasonscontainer, new Episodesfragment(data.getId(),noofseasonss));
         }
         else if (i==1) {
-            fragmentTransaction.replace(R.id.seasonscontainer, new Morelikethisfragment());
+            fragmentTransaction.replace(R.id.seasonscontainer, new Morelikethisfragment(data.getGenre_ids().get(0)));
 
         }
         else {

@@ -3,64 +3,73 @@ package com.example.netflixclone.Fragmentsnetflix;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.netflixclone.Adapters.Moviesadapter;
 import com.example.netflixclone.R;
+import com.example.netflixclone.models.Moviemodel;
+import com.example.netflixclone.viewmodels.Movieviewmodel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Morelikethisfragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.List;
+
+
 public class Morelikethisfragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+RecyclerView mltrc;
+int genreid;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+Movieviewmodel movieviewmodel;
 
-    public Morelikethisfragment() {
-        // Required empty public constructor
-    }
+List<Moviemodel>morelikthisdata;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Morelikethisfragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Morelikethisfragment newInstance(String param1, String param2) {
-        Morelikethisfragment fragment = new Morelikethisfragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+public  Morelikethisfragment(int genreid)
+{
+this.genreid=genreid;
+}
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_morelikethisfragment, container, false);
+        View view= inflater.inflate(R.layout.fragment_morelikethisfragment, container, false);
+
+        mltrc=view.findViewById(R.id.mltrc);
+
+        Log.e("#",genreid+"");
+
+        movieviewmodel=new Movieviewmodel();
+        movieviewmodel  = new ViewModelProvider(this).get(Movieviewmodel.class);
+
+movieviewmodel.getMorelikethis().observe(getViewLifecycleOwner(), new Observer<List<Moviemodel>>() {
+    @Override
+    public void onChanged(List<Moviemodel> moviemodels) {
+        Log.e("#","morevlike this  "+moviemodels.get(0).getImage());
+
+        Moviesadapter moviesadapter=new Moviesadapter(getActivity(),moviemodels);
+        GridLayoutManager layoutManageronlyn = new GridLayoutManager(getActivity(), 3);
+        mltrc.setLayoutManager(layoutManageronlyn);
+        mltrc.setAdapter(moviesadapter);
+
+    }
+});
+
+
+
+        movieviewmodel.fetchMorelikethis(genreid);
+        return  view;
     }
 }

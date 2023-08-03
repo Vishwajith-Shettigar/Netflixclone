@@ -42,6 +42,9 @@ public class Movieviewmodel extends ViewModel {
     private MutableLiveData<Durationmodel>durationdata = new MutableLiveData<>();
 
     private MutableLiveData<Noofseasonsmodel>noofseasondata = new MutableLiveData<>();
+
+    private MutableLiveData<List<Moviemodel>> morelikethisdata = new MutableLiveData<>();
+
     private Movieapiservice movieapiservice;
 
     public Movieviewmodel() {
@@ -79,6 +82,10 @@ public class Movieviewmodel extends ViewModel {
     }
     public LiveData<Noofseasonsmodel> getNoofseasons() {
         return noofseasondata;
+    }
+
+    public LiveData<List<Moviemodel>> getMorelikethis() {
+        return morelikethisdata;
     }
 
 
@@ -244,17 +251,10 @@ public class Movieviewmodel extends ViewModel {
                     List<Episodemodel> datalist=data.getEpisodes();
 
 
-                    try{
+                    if(data.getEpisodes()==null)
+                        Log.e("#","Episode under sucessful-->" + "null");
 
-                        episodedata.postValue(datalist);
-                        Log.e("#","Episode under sucessful" + datalist.get(0).getOverview());
 
-                    }
-                    catch (Exception e)
-                    {
-                        Log.e("#","Episode under sucessful" +e.getMessage());
-
-                    }
 
                 }
                 Log.e("#","Episode under response");
@@ -301,5 +301,32 @@ public class Movieviewmodel extends ViewModel {
         });
     }
 
+
+
+    public void fetchMorelikethis(int genreid) {
+        Log.e("#", "fecth daat");
+        Call<Movieresponse> call = movieapiservice.getMorelikethis(genreid);
+        call.enqueue(new Callback<Movieresponse>() {
+
+            public void onResponse(Call<Movieresponse> call, Response<Movieresponse> response) {
+                if (response.isSuccessful()) {
+                    Movieresponse data =  response.body();
+                    List<Moviemodel> dataList = data.getResults();
+                    morelikethisdata.postValue(dataList);
+
+                }
+            }
+
+
+
+            @Override
+            public void onFailure(Call<Movieresponse> call, Throwable t) {
+
+            }
+
+        });
     }
+
+
+}
 

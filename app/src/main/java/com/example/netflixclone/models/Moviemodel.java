@@ -3,6 +3,8 @@ package com.example.netflixclone.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Moviemodel {
     @SerializedName("id")
     int id;
@@ -37,6 +39,21 @@ public class Moviemodel {
 
    @SerializedName("release_date")
    String year;
+
+   @SerializedName("genre_ids")
+    List<Integer>genre_ids;
+
+    public void setFirstairdate(String firstairdate) {
+        this.firstairdate = firstairdate;
+    }
+
+    public List<Integer> getGenre_ids() {
+        return genre_ids;
+    }
+
+    public void setGenre_ids(List<Integer> genre_ids) {
+        this.genre_ids = genre_ids;
+    }
 
     public String getYear() {
         return year;

@@ -15,6 +15,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface Movieapiservice {
 
@@ -47,11 +48,20 @@ public interface Movieapiservice {
 
 
     @Headers({"Authorization: Bearer "+Apikey.skey, "accept: application/json"})
-    @GET("tv/1399?api_key=b606cf25bdecfd350cb4d11ee5ddaec4&append_to_response=season/1")
+    @GET("tv/1399?api_key=b606cf25bdecfd350cb4d11ee5ddaec4&append_to_response=season/2")
     Call<Episodesresponse> getEpisodes();
 
 
     @Headers({"Authorization: Bearer "+Apikey.skey, "accept: application/json"})
-    @GET("tv/{id}}?api_key=b606cf25bdecfd350cb4d11ee5ddaec4&append_to_response=season/1")
+    @GET("tv/{id}?api_key=b606cf25bdecfd350cb4d11ee5ddaec4&append_to_response=season/1")
     Call<Noofseasonsmodel> getNofseasons(@Path("id") int id);
+
+
+
+    @Headers({"Authorization: Bearer "+Apikey.skey, "accept: application/json"})
+    @GET("https://api.themoviedb.org/3/discover/movie?api_key=b606cf25bdecfd350cb4d11ee5ddaec4")
+    Call<Movieresponse> getMorelikethis(@Query("with_genres") int genreid);
 }
+
+
+
