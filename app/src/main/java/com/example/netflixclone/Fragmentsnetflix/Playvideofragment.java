@@ -216,7 +216,7 @@ y=data.getFirstairdate().split("-")[0];
 
         }
         else {
-            fragmentTransaction.replace(R.id.seasonscontainer, new Trailersfragment());
+            fragmentTransaction.replace(R.id.seasonscontainer, new Trailersfragment(data.getId()));
         }
 //        fragmentTransaction.addToBackStack(null); // Add the transaction to the back stack if you want to navigate back
         fragmentTransaction.commit();

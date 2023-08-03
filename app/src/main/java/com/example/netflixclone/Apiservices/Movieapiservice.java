@@ -3,6 +3,7 @@ package com.example.netflixclone.Apiservices;
 import com.example.netflixclone.Apikey;
 import com.example.netflixclone.Responses.Episodesresponse;
 import com.example.netflixclone.Responses.Movieresponse;
+import com.example.netflixclone.Responses.Tarilerresponse;
 import com.example.netflixclone.models.Durationmodel;
 import com.example.netflixclone.models.Episodemodel;
 import com.example.netflixclone.models.Moviemodel;
@@ -61,6 +62,10 @@ public interface Movieapiservice {
     @Headers({"Authorization: Bearer "+Apikey.skey, "accept: application/json"})
     @GET("https://api.themoviedb.org/3/discover/movie?api_key=b606cf25bdecfd350cb4d11ee5ddaec4")
     Call<Movieresponse> getMorelikethis(@Query("with_genres") int genreid);
+
+    @Headers({"Authorization: Bearer "+Apikey.skey, "accept: application/json"})
+    @GET("https://api.themoviedb.org/3/movie/{id}/videos?api_key=b606cf25bdecfd350cb4d11ee5ddaec4")
+    Call<Tarilerresponse> getTrailer(@Path("id") int id);
 }
 
 

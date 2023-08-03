@@ -7,9 +7,10 @@ import java.util.List;
 
 public class Episodesresponse {
 
-    private List<Episodemodel> episodes;
+    @SerializedName("episodes")
+    public List<Episodemodel> episodesmodel;
 
-    public List<Episodemodel> getEpisodes() {
-        return episodes;
+    public List<Episodemodel> getEpisodesmodel() {
+        return episodesmodel;
     }
 }

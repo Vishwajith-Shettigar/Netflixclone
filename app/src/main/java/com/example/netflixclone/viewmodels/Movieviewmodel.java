@@ -10,11 +10,13 @@ import com.example.netflixclone.Apiservices.Durationresponse;
 import com.example.netflixclone.Apiservices.Movieapiservice;
 import com.example.netflixclone.Responses.Episodesresponse;
 import com.example.netflixclone.Responses.Movieresponse;
+import com.example.netflixclone.Responses.Tarilerresponse;
 import com.example.netflixclone.models.Durationmodel;
 import com.example.netflixclone.models.Episodemodel;
 import com.example.netflixclone.models.Moviemodel;
 import com.example.netflixclone.models.Noofseasonsmodel;
 import com.example.netflixclone.models.Seasonsmodel;
+import com.example.netflixclone.models.Trailersmodel;
 
 import java.text.Collator;
 import java.util.List;
@@ -44,6 +46,8 @@ public class Movieviewmodel extends ViewModel {
     private MutableLiveData<Noofseasonsmodel>noofseasondata = new MutableLiveData<>();
 
     private MutableLiveData<List<Moviemodel>> morelikethisdata = new MutableLiveData<>();
+
+    private MutableLiveData<List<Trailersmodel>> trailerdata = new MutableLiveData<>();
 
     private Movieapiservice movieapiservice;
 
@@ -88,7 +92,9 @@ public class Movieviewmodel extends ViewModel {
         return morelikethisdata;
     }
 
-
+    public LiveData<List<Trailersmodel>> getTrailer() {
+        return trailerdata;
+    }
     public void fetchPopularmovies() {
         Log.e("#", "fecth daat");
         Call<Movieresponse> call = movieapiservice.getMovieList();
@@ -242,29 +248,26 @@ public class Movieviewmodel extends ViewModel {
 
     public void fetchEpisodes(int id) {
 
-        Call<Episodesresponse>call = movieapiservice.getEpisodes();
+        Log.e("#", "fecth daat");
+        Call<Episodesresponse> call = movieapiservice.getEpisodes();
         call.enqueue(new Callback<Episodesresponse>() {
 
-            public void onResponse(Call<Episodesresponse>call, Response<Episodesresponse> response) {
+            public void onResponse(Call<Episodesresponse> call, Response<Episodesresponse> response) {
                 if (response.isSuccessful()) {
                     Episodesresponse data =  response.body();
-                    List<Episodemodel> datalist=data.getEpisodes();
+                    List<Episodemodel> dataList = data.getEpisodesmodel();
 
-
-                    if(data.getEpisodes()==null)
-                        Log.e("#","Episode under sucessful-->" + "null");
-
-
+                    Log.e("#"," fetching episode -->"+  dataList.get(0).getOverview());
+                    episodedata.postValue(dataList);
 
                 }
-                Log.e("#","Episode under response");
             }
 
 
 
             @Override
             public void onFailure(Call<Episodesresponse> call, Throwable t) {
-                Log.e("#","Episode under failure "+ t.getMessage());
+
             }
 
         });
@@ -321,6 +324,30 @@ public class Movieviewmodel extends ViewModel {
 
             @Override
             public void onFailure(Call<Movieresponse> call, Throwable t) {
+
+            }
+
+        });
+    }
+
+    public void fetchTrailer(int id) {
+        Log.e("#", "fecth daat");
+        Call<Tarilerresponse> call = movieapiservice.getTrailer(id);
+        call.enqueue(new Callback<Tarilerresponse>() {
+
+            public void onResponse(Call<Tarilerresponse> call, Response<Tarilerresponse> response) {
+                if (response.isSuccessful()) {
+                    Tarilerresponse data =  response.body();
+                    List<Trailersmodel> dataList = data.getTrailersmodels();
+                    trailerdata.postValue(dataList);
+
+                }
+            }
+
+
+
+            @Override
+            public void onFailure(Call<Tarilerresponse> call, Throwable t) {
 
             }
 
