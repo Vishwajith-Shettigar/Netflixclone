@@ -257,7 +257,7 @@ public class Movieviewmodel extends ViewModel {
                     Episodesresponse data =  response.body();
                     List<Episodemodel> dataList = data.getEpisodesmodel();
 
-                    Log.e("#"," fetching episode -->"+  dataList.get(0).getOverview());
+//                    Log.e("#"," fetching episode -->"+  dataList.get(0).getOverview());
                     episodedata.postValue(dataList);
 
                 }
