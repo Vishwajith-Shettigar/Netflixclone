@@ -17,6 +17,17 @@ public class Episodemodel {
     @SerializedName("still_path")
     String image;
 
+    @SerializedName("vote_average")
+    String ratings;
+
+    public String getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(String ratings) {
+        this.ratings = ratings;
+    }
+
     public int getEpino() {
         return epino;
     }

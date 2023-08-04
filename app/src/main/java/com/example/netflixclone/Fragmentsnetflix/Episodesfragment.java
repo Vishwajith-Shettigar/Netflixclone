@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.netflixclone.Adapters.Moviesadapter;
+import com.example.netflixclone.Adapters.episodesadapter;
 import com.example.netflixclone.R;
 import com.example.netflixclone.models.Durationmodel;
 import com.example.netflixclone.models.Episodemodel;
@@ -67,7 +68,11 @@ Log.e("#","no of seasons "+ noofseasonss);
         movieviewmodel.getEpisode().observe(getViewLifecycleOwner(), new Observer<List<Episodemodel>>() {
             @Override
             public void onChanged(List<Episodemodel> episodemodel) {
+                episodesadapter episodesadapter=new episodesadapter(getContext(),episodemodel);
 
+                LinearLayoutManager      layoutManagertv = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                episodesrc.setLayoutManager(layoutManagertv);
+                episodesrc.setAdapter(episodesadapter);
 
 
 

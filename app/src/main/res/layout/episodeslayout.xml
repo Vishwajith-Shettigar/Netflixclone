@@ -1,6 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/black"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+
+
+        >
+<ImageView
+    android:layout_width="140dp"
+    android:layout_height="100dp"
+    android:id="@+id/thumdnail"
+    />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+android:layout_marginStart="5dp"
+                android:textStyle="bold"
+                android:id="@+id/titleepisode"
+                android:textColor="@color/white"
+                android:layout_width="170dp"
+                android:layout_height="match_parent"
+                android:textAlignment="textStart"
+                android:text="1. Wednesday child is full of lovedjed oief joief jfewhof hwfhwo rfr"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginStart="5dp"
+
+                >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/staricon"
+
+                    />
+
+                <TextView
+
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8,46"
+                    android:textSize="12dp"
+                    android:id="@+id/ratingepisode"
+
+                    />
+            </LinearLayout>
+        </LinearLayout>
+<ImageView
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+android:layout_gravity="center_vertical"
+android:src="@drawable/baseline_download_24"
+    android:foregroundGravity="center_horizontal"
+    />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:textColor="#DCD6D6"
+        android:padding="10dp"
+        android:id="@+id/overviewepisode"
+        android:textAlignment="textStart"
+        android:text="hdeonfne hfgeg g  hghre g gr ghrg hreghg grgi hoghreg grhg ghrg rghreghr ih girehgg rh rhger"
+
+        />
+</LinearLayout>
