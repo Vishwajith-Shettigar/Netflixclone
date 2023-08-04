@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -88,8 +89,16 @@ BottomNavigationView bottom_navigation;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
+
         getMenuInflater().inflate(R.menu.parentmenus,menu);
 
         return true;
+    }
+
+     public Context getContext(){
+
+        return  this;
+
     }
 }

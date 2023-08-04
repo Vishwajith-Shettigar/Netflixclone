@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/signunhelp"
+        android:id="@+id/search"
 android:icon="@drawable/baseline_search_24"
         app:showAsAction="always"
 
@@ -11,9 +11,10 @@ android:icon="@drawable/baseline_search_24"
         />
 
     <item
-        android:id="@+id/signupsignin"
+        android:id="@+id/ac"
   android:icon="@drawable/accountblueicon"
         app:showAsAction="always"
+
 
         />
 </menu>

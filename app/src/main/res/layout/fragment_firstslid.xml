@@ -19,7 +19,7 @@ android:scaleType="centerCrop"
 android:id="@+id/getstartedfirsttext"
         android:text="Unlimited en \n ntertainment,\n one low price "
         android:textColor="@color/white"
-        android:textSize="40dp"
+        android:textSize="35dp"
        android:layout_alignParentBottom="true"
 
   android:elevation="4dp"

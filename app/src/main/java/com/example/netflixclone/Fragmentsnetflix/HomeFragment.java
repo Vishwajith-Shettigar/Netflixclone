@@ -1,5 +1,6 @@
 package com.example.netflixclone.Fragmentsnetflix;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,11 +16,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.example.netflixclone.Adapters.Moviesadapter;
 import com.example.netflixclone.Parenntscreen;
 import com.example.netflixclone.R;
 import com.example.netflixclone.models.Moviemodel;
+import com.example.netflixclone.tvshows;
 import com.example.netflixclone.viewmodels.Movieviewmodel;
 
 import java.util.List;
@@ -28,6 +31,7 @@ public class HomeFragment extends Fragment {
     RecyclerView moviesrc,trendingnowrc,onlyonnetflixrc,tvdramasrc,horrorrc;
     Movieviewmodel movieviewmodel;
     ScrollView scrollview;
+    TextView tvshowsmenu,moviesmenu;
     LinearLayoutManager layoutManagermovie,layoutManagertrending,layoutManageronlyn,layoutManagertv,layoutManagerhorror;
     private int moviesrcp = 0;
     private int trendingrcp = 0;
@@ -54,6 +58,8 @@ public class HomeFragment extends Fragment {
                     scrollview.scrollTo(0, scrollPosition);
                 }
             });
+
+
 
 
             moviesrcp = savedInstanceState.getInt("moviesrcp", 0);
@@ -111,11 +117,19 @@ public class HomeFragment extends Fragment {
         onlyonnetflixrc=view.findViewById(R.id.onlyonnetflixrc);
         tvdramasrc=view.findViewById(R.id.tvdramasrc);
         horrorrc=view.findViewById(R.id.horrorrc);
-
+        tvshowsmenu=view.findViewById(R.id.tvshowsmenu);
+        moviesmenu=view.findViewById(R.id.moviesmenu);
         movieviewmodel=new Movieviewmodel();
         movieviewmodel= new ViewModelProvider(this).get(Movieviewmodel.class);
 
 
+
+        tvshowsmenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), tvshows.class));
+            }
+        });
         movieviewmodel.getMymovies().observe(getViewLifecycleOwner(), new Observer<List<Moviemodel>>() {
             @Override
             public void onChanged(List<Moviemodel> moviemodels) {

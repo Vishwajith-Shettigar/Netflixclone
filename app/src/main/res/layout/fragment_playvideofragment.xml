@@ -9,12 +9,15 @@
     tools:context=".Fragmentsnetflix.Playvideofragment"
     android:orientation="vertical">
 
-<VideoView
-    android:id="@+id/videoplayer"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
+>
+    <WebView
+        android:id="@+id/videoplayer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/black"
 
-    />
+
+        />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

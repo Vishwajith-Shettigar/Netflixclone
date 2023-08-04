@@ -14,20 +14,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.netflixclone.Fragmentsnetflix.Playvideofragment;
+import com.example.netflixclone.Parenntscreen;
 import com.example.netflixclone.R;
 import com.example.netflixclone.models.Moviemodel;
+import com.example.netflixclone.tvshows;
 
 import java.util.List;
 
 public class Moviesadapter extends RecyclerView.Adapter<Moviesadapter.Myviewholder> {
 private List<Moviemodel> datalist;
 Context context;
+Boolean  isForeign=false;
 
 public Moviesadapter(Context context,List<Moviemodel> datalist)
 {
     this.datalist=datalist;
     this.context=context;
+
 }
+    public Moviesadapter(Context context,List<Moviemodel> datalist,Boolean isForeign)
+    {
+        this.datalist=datalist;
+        this.context=context;
+        this.isForeign=isForeign;
+    }
 
     @NonNull
     @Override
@@ -54,15 +64,22 @@ public Moviesadapter(Context context,List<Moviemodel> datalist)
     }
 
     private void playvideo(int position) {
-     Moviemodel data=datalist.get(position);
+        Moviemodel data = datalist.get(position);
+        FragmentManager fragmentManager;
+        if (isForeign) {
+        (    (tvshows)context).goBackToparentActivtity();
 
-        FragmentManager fragmentManager=((AppCompatActivity)context).getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.framecontainer, new Playvideofragment(data));
-        fragmentTransaction.addToBackStack(null); // Add the transaction to the back stack if you want to navigate back
-        fragmentTransaction.commit();
+        } else {
+
+            fragmentManager = ((AppCompatActivity) context).getSupportFragmentManager();
+
+
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.framecontainer, new Playvideofragment(data));
+            fragmentTransaction.addToBackStack(null); // Add the transaction to the back stack if you want to navigate back
+            fragmentTransaction.commit();
+        }
     }
-
 
     @Override
     public int getItemCount() {

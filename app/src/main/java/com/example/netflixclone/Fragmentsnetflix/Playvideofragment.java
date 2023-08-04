@@ -28,17 +28,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.example.netflixclone.R;
 import com.example.netflixclone.models.Durationmodel;
 import com.example.netflixclone.models.Moviemodel;
 import com.example.netflixclone.models.Noofseasonsmodel;
+import com.example.netflixclone.models.Trailersmodel;
 import com.example.netflixclone.viewmodels.Movieviewmodel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.sql.Wrapper;
 import java.text.DecimalFormat;
+import java.util.List;
 
 
 public class Playvideofragment extends Fragment {
@@ -48,6 +55,7 @@ public class Playvideofragment extends Fragment {
     private boolean isExpanded = false;
     Movieviewmodel movieviewmodel;
      Boolean hasSeasons=false;
+     WebView videoplayer;
      int noofseasonss=0;
  public  Playvideofragment(Moviemodel data)
  {
@@ -74,6 +82,10 @@ public class Playvideofragment extends Fragment {
         overview=view.findViewById(R.id.overview);
         movieviewmodel = new Movieviewmodel();
         movieviewmodel= new ViewModelProvider(this).get(Movieviewmodel.class);
+
+        videoplayer=view.findViewById(R.id.videoplayer);
+
+
 
 
 overview.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +119,21 @@ overview.setOnClickListener(new View.OnClickListener() {
 setDataforviews();
 
 
+        movieviewmodel.getTrailer().observe(getViewLifecycleOwner(), new Observer<List<Trailersmodel>>() {
+            @Override
+            public void onChanged(List<Trailersmodel> trailersmodels) {
 
+                if(trailersmodels!=null)
+                {
+                    String key=trailersmodels.get(0).getKey();
+                    configureWebView(videoplayer);
+                    loadYoutubeVideo(key,videoplayer);
+
+                }
+            }
+        });
+
+        movieviewmodel.fetchTrailer(data.getId());
 
 
         movieviewmodel.getDuration().observe(getViewLifecycleOwner(), new Observer<Durationmodel>() {
@@ -235,5 +261,27 @@ y=data.getFirstairdate().split("-")[0];
     }
 
 
+    private void configureWebView(WebView webView) {
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webView.setWebChromeClient(new WebChromeClient());
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                // Prevent any external browser from opening when a link is clicked inside the WebView
+                return false;
+            }
+        });
+    }
+    private void loadYoutubeVideo(String key,WebView webView) {
+        Log.e("#",key);
+        Log.e("#",key);
+
+
+        String iframeHtml = "<html><head> <style>body { margin: 0; padding: 0; }</style></head><body><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/"
+                + key
+                + "?autoplay=1\" allowfullscreen></iframe></body></html>";
+        webView.loadData(iframeHtml, "text/html", "utf-8");
+    }
 
 }

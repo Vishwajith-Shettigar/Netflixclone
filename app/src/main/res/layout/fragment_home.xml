@@ -38,6 +38,7 @@
                 >
 
                 <TextView
+                    android:id="@+id/tvshowsmenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TV Shows"
@@ -50,6 +51,7 @@
                     android:background="@drawable/backparenttabtop"
                     />
                 <TextView
+                    android:id="@+id/moviesmenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Movies"
