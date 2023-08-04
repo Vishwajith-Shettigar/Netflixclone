@@ -12,7 +12,7 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="100dp"
         android:layout_height="30dp"
-
+android:id="@+id/seasonnobtn"
         app:icon="@drawable/baseline_arrow_drop_down_24"
         android:text="Season 1"
         android:textColor="@color/white"
