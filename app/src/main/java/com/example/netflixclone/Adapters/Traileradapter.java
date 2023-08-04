@@ -10,10 +10,12 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.netflixclone.R;
 import com.example.netflixclone.models.Trailersmodel;
 
@@ -45,7 +47,7 @@ public class Traileradapter extends RecyclerView.Adapter<Traileradapter.Myviewho
         Log.e("#",videoUrl);
 
 
-        WebView webView=holder.videoView;
+        WebView webView=holder.webView;
 
         loadYoutubeVideo(data.get(position).getKey(),webView);
 
@@ -70,9 +72,9 @@ public class Traileradapter extends RecyclerView.Adapter<Traileradapter.Myviewho
         Log.e("#",key);
 
 
-        String iframeHtml = "<html><body><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/"
+        String iframeHtml = "<html><head> <style>body { margin: 0; padding: 0; }</style></head><body><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/"
                 + key
-                + "?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe></body></html>";
+                + "?autoplay=1\" allowfullscreen></iframe></body></html>";
         webView.loadData(iframeHtml, "text/html", "utf-8");
     }
 
@@ -83,11 +85,11 @@ public class Traileradapter extends RecyclerView.Adapter<Traileradapter.Myviewho
 
     public class Myviewholder extends RecyclerView.ViewHolder{
 
-WebView videoView;
+WebView webView;
         public Myviewholder(@NonNull View itemView) {
             super(itemView);
-            videoView=itemView.findViewById(R.id.tlvideoplayer);
-            configureWebView(videoView);
+            webView=itemView.findViewById(R.id.tlvideoplayer);
+            configureWebView(webView);
 
         }
     }

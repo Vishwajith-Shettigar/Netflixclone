@@ -2,6 +2,8 @@ package com.example.netflixclone.Fragmentsnetflix;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -19,7 +21,11 @@ import com.example.netflixclone.R;
 import com.example.netflixclone.models.Trailersmodel;
 import com.example.netflixclone.viewmodels.Movieviewmodel;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 
 public class Trailersfragment extends Fragment {
@@ -54,8 +60,9 @@ int id;
         movieviewmodel.getTrailer().observe(getViewLifecycleOwner(), new Observer<List<Trailersmodel>>() {
             @Override
             public void onChanged(List<Trailersmodel> trailersmodels) {
-                Log.e("#",trailersmodels.get(0).getKey());
-                 LinearLayoutManager linearLayoutManager =new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
+
+
+                LinearLayoutManager linearLayoutManager =new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
                  trailerrc.setLayoutManager(linearLayoutManager);
 
                 Traileradapter traileradapter=new Traileradapter(getContext(),trailersmodels);

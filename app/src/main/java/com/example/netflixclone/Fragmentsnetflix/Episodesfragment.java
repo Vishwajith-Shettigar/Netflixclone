@@ -61,7 +61,8 @@ Log.e("#","no of seasons "+ noofseasonss);
             }
         });
         if(noofseasonss>0) {
-            movieviewmodel.fetchEpisodes(id);
+            Log.e("#",noofseasonss+ "-----------");
+            movieviewmodel.fetchEpisodes(id,1);
 
         }
 

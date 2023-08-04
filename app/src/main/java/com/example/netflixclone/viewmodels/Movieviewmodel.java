@@ -246,18 +246,17 @@ public class Movieviewmodel extends ViewModel {
     }
 
 
-    public void fetchEpisodes(int id) {
+    public void fetchEpisodes(int id,int sno) {
 
         Log.e("#", "fecth daat");
-        Call<Episodesresponse> call = movieapiservice.getEpisodes();
+        Call<Episodesresponse> call = movieapiservice.getEpisodes(id,sno);
         call.enqueue(new Callback<Episodesresponse>() {
 
             public void onResponse(Call<Episodesresponse> call, Response<Episodesresponse> response) {
                 if (response.isSuccessful()) {
                     Episodesresponse data =  response.body();
                     List<Episodemodel> dataList = data.getEpisodesmodel();
-
-//                    Log.e("#"," fetching episode -->"+  dataList.get(0).getOverview());
+                    Log.e("#",dataList.get(0).getImage());
                     episodedata.postValue(dataList);
 
                 }

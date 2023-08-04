@@ -49,8 +49,8 @@ public interface Movieapiservice {
 
 
     @Headers({"Authorization: Bearer "+Apikey.skey, "accept: application/json"})
-    @GET("tv/1399?api_key=b606cf25bdecfd350cb4d11ee5ddaec4&append_to_response=season/2")
-    Call<Episodesresponse> getEpisodes();
+    @GET("tv/{id}/season/{sno}")
+    Call<Episodesresponse> getEpisodes(@Path("id") int id,@Path("sno") int sno);
 
 
     @Headers({"Authorization: Bearer "+Apikey.skey, "accept: application/json"})
