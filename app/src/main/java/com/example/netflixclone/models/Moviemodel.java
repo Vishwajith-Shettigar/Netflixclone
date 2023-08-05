@@ -1,11 +1,17 @@
 package com.example.netflixclone.models;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Moviemodel {
+public class Moviemodel  implements Parcelable {
     @SerializedName("id")
     int id;
 
@@ -16,6 +22,35 @@ public class Moviemodel {
 
 @SerializedName("first_air_date")
     String firstairdate;
+
+    protected Moviemodel(Parcel in) {
+        id = in.readInt();
+        title = in.readString();
+        name = in.readString();
+        firstairdate = in.readString();
+        image = in.readString();
+        if (in.readByte() == 0) {
+            ratings = null;
+        } else {
+            ratings = in.readDouble();
+        }
+        desc = in.readString();
+        year = in.readString();
+        genre_ids = new ArrayList<>();
+        in.readList(genre_ids, Integer.class.getClassLoader());
+    }
+
+    public static final Creator<Moviemodel> CREATOR = new Creator<Moviemodel>() {
+        @Override
+        public Moviemodel createFromParcel(Parcel in) {
+            return new Moviemodel(in);
+        }
+
+        @Override
+        public Moviemodel[] newArray(int size) {
+            return new Moviemodel[size];
+        }
+    };
 
     public String getFirstairdate() {
         return firstairdate;
@@ -101,5 +136,28 @@ public class Moviemodel {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(title);
+        parcel.writeString(name);
+        parcel.writeString(firstairdate);
+        parcel.writeString(image);
+        if (ratings == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeDouble(ratings);
+        }
+        parcel.writeString(desc);
+        parcel.writeString(year);
+        parcel.writeList(genre_ids);
     }
 }

@@ -19,6 +19,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.netflixclone.Adapters.Moviesadapter;
+import com.example.netflixclone.Moviesa;
 import com.example.netflixclone.Parenntscreen;
 import com.example.netflixclone.R;
 import com.example.netflixclone.models.Moviemodel;
@@ -130,6 +131,13 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(getActivity(), tvshows.class));
             }
         });
+
+        moviesmenu.setOnClickListener(new View.OnClickListener() {
+                                           @Override
+                                           public void onClick(View view) {
+                                               startActivity(new Intent(getActivity(), Moviesa.class));
+                                           }
+                                       });
         movieviewmodel.getMymovies().observe(getViewLifecycleOwner(), new Observer<List<Moviemodel>>() {
             @Override
             public void onChanged(List<Moviemodel> moviemodels) {

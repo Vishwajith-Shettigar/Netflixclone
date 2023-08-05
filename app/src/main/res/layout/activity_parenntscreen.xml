@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/netflicgradientback"
     tools:context=".Parenntscreen">
 
 
@@ -17,6 +17,7 @@ android:elevation="3dp"
         android:paddingLeft="0dp"
         android:contentInsetStart="0dp"
         style="@style/ToolbarStyle"
+        android:background=""
 
 
         >
@@ -341,6 +342,7 @@ android:paddingTop="10dp"
         android:layout_below="@+id/parenttb"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:layout_above="@+id/bottom_navigation"
 
         />

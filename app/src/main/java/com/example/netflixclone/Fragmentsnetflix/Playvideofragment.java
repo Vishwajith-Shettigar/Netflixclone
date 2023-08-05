@@ -97,6 +97,9 @@ overview.setOnClickListener(new View.OnClickListener() {
         bottomNavigationView = view.findViewById(R.id.videotabs);
         bottomNavigationView.getMenu().getItem(0).setVisible(false);
         bottomNavigationView.getMenu().getItem(1).setChecked(true);
+
+
+        Log.e("#",data.getId()+"--lolol");
         movieviewmodel.fetchnofoseasons(data.getId());
 
         // Create a PopupMenu and inflate it with your menu resource
@@ -125,9 +128,15 @@ setDataforviews();
 
                 if(trailersmodels!=null)
                 {
-                    String key=trailersmodels.get(0).getKey();
-                    configureWebView(videoplayer);
-                    loadYoutubeVideo(key,videoplayer);
+                    try{
+                        String key=trailersmodels.get(0).getKey();
+                        configureWebView(videoplayer);
+                        loadYoutubeVideo(key,videoplayer);
+
+                    }
+                    catch (Exception e){
+
+                    }
 
                 }
             }

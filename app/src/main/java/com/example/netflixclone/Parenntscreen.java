@@ -4,12 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -19,6 +22,7 @@ import com.example.netflixclone.Adapters.Moviesadapter;
 import com.example.netflixclone.Fragmentsnetflix.DownloadsFragment;
 import com.example.netflixclone.Fragmentsnetflix.HomeFragment;
 import com.example.netflixclone.Fragmentsnetflix.NewsFragment;
+import com.example.netflixclone.Fragmentsnetflix.Playvideofragment;
 import com.example.netflixclone.models.Moviemodel;
 import com.example.netflixclone.viewmodels.Movieviewmodel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -45,10 +49,47 @@ BottomNavigationView bottom_navigation;
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
+
        getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer,new HomeFragment())
                        .commit();
 
+        Intent intent=getIntent();
+        if(intent!=null)
+        {
+            boolean tvshow = intent.getBooleanExtra("tvshow",false);
+            boolean movies=intent.getBooleanExtra("movies",false);
+            if(tvshow) {
+                {
+                    Log.e("#", "tv show ");
+                    Moviemodel datatv=intent.getParcelableExtra("tvshowdata");
+                    Log.e("#", datatv.getGenre_ids().get(0)+" --<");
 
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.framecontainer, new Playvideofragment(datatv));
+                    fragmentTransaction.addToBackStack(null); // Add the transaction to the back stack if you want to navigate back
+                    fragmentTransaction.commit();
+
+                }
+            }
+            else if(movies)
+            {
+                Moviemodel datatv=intent.getParcelableExtra("moviesdata");
+                Log.e("#", datatv.getGenre_ids().get(0)+" --<");
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.framecontainer, new Playvideofragment(datatv));
+                fragmentTransaction.addToBackStack(null); // Add the transaction to the back stack if you want to navigate back
+                fragmentTransaction.commit();
+
+            }
+            else
+                Log.e("#","Normal  ");
+
+
+
+        }
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

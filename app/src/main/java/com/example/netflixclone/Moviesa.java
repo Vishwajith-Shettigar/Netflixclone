@@ -1,12 +1,9 @@
 package com.example.netflixclone;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleObserver;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -19,16 +16,14 @@ import com.example.netflixclone.viewmodels.Movieviewmodel;
 
 import java.util.List;
 
-public class tvshows extends AppCompatActivity {
+public class Moviesa extends AppCompatActivity {
     RecyclerView tvshowsrc;
     Movieviewmodel movieviewmodel;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tvshows);
+        setContentView(R.layout.activity_moviesa);
+
 
         tvshowsrc=findViewById(R.id.tvshowsrc);
         movieviewmodel=new Movieviewmodel();
@@ -36,33 +31,33 @@ public class tvshows extends AppCompatActivity {
 
 
 
-        movieviewmodel.getTvdramas().observe(this, new Observer<List<Moviemodel>>() {
+        movieviewmodel.getMymovies().observe(this, new Observer<List<Moviemodel>>() {
             @Override
             public void onChanged(List<Moviemodel> moviemodels) {
 
-                Moviesadapter moviesadapter=new Moviesadapter(getApplicationContext(),moviemodels,true,tvshows.this);
+                Moviesadapter moviesadapter=new Moviesadapter(getApplicationContext(),moviemodels,true,Moviesa.this,10);
                 GridLayoutManager gridLayoutManager= new GridLayoutManager(getApplicationContext(),3);
                 tvshowsrc.setLayoutManager(gridLayoutManager);
                 tvshowsrc.setAdapter(moviesadapter);
 
             }
         });
-        movieviewmodel.fetchTvdramas();
+        movieviewmodel.fetchPopularmovies();
 
 
     }
-public  void goBackToparentActivtity( Moviemodel data ){
+    public  void goBackToparentActivtity( Moviemodel data ){
 
-Log.e("#","its foreign ");
+        Log.e("#","its foreign ");
 
-    Intent intent=new Intent(tvshows.this,Parenntscreen.class);
-    intent.putExtra("tvshow",true);
-    intent.putExtra("tvshowdata",data);
+        Intent intent=new Intent(Moviesa.this,Parenntscreen.class);
+        intent.putExtra("movies",true);
+        intent.putExtra("moviesdata",data);
 
-    startActivity(intent);
+        startActivity(intent);
 
 
 
-}
+    }
 
 }
