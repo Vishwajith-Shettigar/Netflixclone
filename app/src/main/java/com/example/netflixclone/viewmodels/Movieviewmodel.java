@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.netflixclone.Apikey;
 import com.example.netflixclone.Apiservices.Durationresponse;
 import com.example.netflixclone.Apiservices.Movieapiservice;
 import com.example.netflixclone.Responses.Episodesresponse;
@@ -275,7 +276,7 @@ public class Movieviewmodel extends ViewModel {
 
     public void fetchnofoseasons(int id) {
         Log.e("#", "fecth daat");
-        Call<Noofseasonsmodel> call = movieapiservice.getNofseasons(id);
+        Call<Noofseasonsmodel> call = movieapiservice.getNofseasons(id,Apikey.apikey);
         call.enqueue(new Callback<Noofseasonsmodel>() {
 
             public void onResponse(Call<Noofseasonsmodel> call, Response<Noofseasonsmodel> response) {
@@ -307,7 +308,7 @@ public class Movieviewmodel extends ViewModel {
 
     public void fetchMorelikethis(int genreid) {
         Log.e("#", "fecth daat");
-        Call<Movieresponse> call = movieapiservice.getMorelikethis(genreid);
+        Call<Movieresponse> call = movieapiservice.getMorelikethis(Apikey.apikey,genreid);
         call.enqueue(new Callback<Movieresponse>() {
 
             public void onResponse(Call<Movieresponse> call, Response<Movieresponse> response) {
@@ -331,7 +332,7 @@ public class Movieviewmodel extends ViewModel {
 
     public void fetchTrailer(int id) {
         Log.e("#", "fecth daat");
-        Call<Tarilerresponse> call = movieapiservice.getTrailer(id);
+        Call<Tarilerresponse> call = movieapiservice.getTrailer(id,Apikey.apikey);
         call.enqueue(new Callback<Tarilerresponse>() {
 
             public void onResponse(Call<Tarilerresponse> call, Response<Tarilerresponse> response) {

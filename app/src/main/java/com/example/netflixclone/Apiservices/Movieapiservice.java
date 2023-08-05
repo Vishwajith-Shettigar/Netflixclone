@@ -54,18 +54,18 @@ public interface Movieapiservice {
 
 
     @Headers({"Authorization: Bearer "+Apikey.skey, "accept: application/json"})
-    @GET("tv/{id}?api_key=b606cf25bdecfd350cb4d11ee5ddaec4&append_to_response=season/1")
-    Call<Noofseasonsmodel> getNofseasons(@Path("id") int id);
+    @GET("tv/{id}?append_to_response=season/1")
+    Call<Noofseasonsmodel> getNofseasons(@Path("id") int id,@Query("api_key") String api_key);
 
 
 
     @Headers({"Authorization: Bearer "+Apikey.skey, "accept: application/json"})
     @GET("https://api.themoviedb.org/3/discover/movie?api_key=b606cf25bdecfd350cb4d11ee5ddaec4")
-    Call<Movieresponse> getMorelikethis(@Query("with_genres") int genreid);
+    Call<Movieresponse> getMorelikethis(  @Query("api_key") String api_key, @Query("with_genres") int genreid);
 
     @Headers({"Authorization: Bearer "+Apikey.skey, "accept: application/json"})
-    @GET("https://api.themoviedb.org/3/movie/{id}/videos?api_key=b606cf25bdecfd350cb4d11ee5ddaec4")
-    Call<Tarilerresponse> getTrailer(@Path("id") int id);
+    @GET("https://api.themoviedb.org/3/movie/{id}/videos")
+    Call<Tarilerresponse> getTrailer(@Path("id") int id,  @Query("api_key") String api_key);
 }
 
 
