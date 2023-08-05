@@ -17,7 +17,7 @@ android:elevation="3dp"
         android:paddingLeft="0dp"
         android:contentInsetStart="0dp"
         style="@style/ToolbarStyle"
-        android:background=""
+
 
 
         >
