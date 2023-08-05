@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.netflixclone.Adapters.Moviesadapter;
 import com.example.netflixclone.Fragmentsnetflix.DownloadsFragment;
@@ -30,7 +31,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.List;
 
 public class Parenntscreen extends AppCompatActivity {
-    Toolbar parenttb;
+    Toolbar parenttb,downloadstb;
 
 RecyclerView moviesrc,trendingnowrc,onlyonnetflixrc,tvdramasrc,horrorrc;
 Movieviewmodel movieviewmodel;
@@ -43,7 +44,10 @@ BottomNavigationView bottom_navigation;
 
         bottom_navigation=findViewById(R.id.bottom_navigation);
 
+        downloadstb=findViewById(R.id.downloadstb);
 
+        downloadstb.setVisibility(View.GONE);
+        parenttb.setVisibility(View.VISIBLE);
 
         setSupportActionBar(parenttb);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -97,6 +101,8 @@ BottomNavigationView bottom_navigation;
                 switch (item.getItemId())
                 {
                     case R.id.Homemenu:
+                        downloadstb.setVisibility(View.GONE);
+                        parenttb.setVisibility(View.VISIBLE);
                         getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer,new HomeFragment())
                                 .commit();
 
@@ -109,6 +115,8 @@ BottomNavigationView bottom_navigation;
                         break;
 
                     case R.id.downloadsmenu:
+                        downloadstb.setVisibility(View.VISIBLE);
+                        parenttb.setVisibility(View.GONE);
                         getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer,new DownloadsFragment())
                                 .commit();
 

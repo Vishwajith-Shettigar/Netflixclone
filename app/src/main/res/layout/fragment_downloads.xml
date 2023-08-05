@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="60dp"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
     tools:context=".Fragmentsnetflix.DownloadsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:textSize="23dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:textStyle="bold"
 
-</FrameLayout>
+
+
+        android:text="Introducing Downloads for you" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="#C3BFBF"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+
+
+
+
+        android:text="We'll download a personalized selection of movies and shows for you, so there's always something to watch on your phone."
+
+        />
+
+<androidx.cardview.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/black"
+    android:layout_marginTop="20dp"
+    app:cardCornerRadius="10dp"
+
+
+    >
+<ImageView
+    android:layout_width="200dp"
+    android:layout_height="300dp"
+android:scaleType="centerCrop"
+android:src="@drawable/frontbanner"
+
+    />
+
+    
+</androidx.cardview.widget.CardView>
+    <com.google.android.material.button.MaterialButton
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:text="SET UP"
+        android:textColor="@color/white"
+        style="@style/customButtongetstartedandsignin"
+
+        />
+</LinearLayout>
