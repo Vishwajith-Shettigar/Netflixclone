@@ -6,13 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.example.netflixclone.Fragmentsnetflix.Playvideofragment;
 import com.example.netflixclone.Moviesa;
@@ -20,7 +18,6 @@ import com.example.netflixclone.Parenntscreen;
 import com.example.netflixclone.R;
 import com.example.netflixclone.models.Moviemodel;
 import com.example.netflixclone.tvshows;
-
 import java.util.List;
 
 public class Moviesadapter extends RecyclerView.Adapter<Moviesadapter.Myviewholder> {
@@ -116,5 +113,3 @@ ImageView imageView;
         }
     }
 }
-
-
